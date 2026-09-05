@@ -21,6 +21,7 @@
                 <loggerName fieldName="category"/>
                 <threadName/>
                 <message/>
+                <keyValuePairs/>
                 <mdc>
                     <includeMdcKeyName>correlationId</includeMdcKeyName>
                 </mdc>
@@ -43,6 +44,7 @@
                 <loggerName fieldName="category"/>
                 <threadName/>
                 <message/>
+                <keyValuePairs/>
                 <mdc>
                     <includeMdcKeyName>correlationId</includeMdcKeyName>
                 </mdc>

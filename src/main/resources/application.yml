@@ -30,6 +30,12 @@ spring:
 # LOGGING CONFIGURATION
 # ==========================================
 logging:
+  http:
+    enabled: ${HTTP_LOGGING_ENABLED:true}
+    log-request-body: ${HTTP_LOGGING_REQUEST_BODY:true}
+    log-response-body: ${HTTP_LOGGING_RESPONSE_BODY:true}
+    max-body-size: ${HTTP_LOGGING_MAX_BODY_SIZE:10000}
+    excluded-paths: ${HTTP_LOGGING_EXCLUDED_PATHS:}
   structured:
     format:
       console: ${LOGGING_STRUCTURED_FORMAT:logstash}
