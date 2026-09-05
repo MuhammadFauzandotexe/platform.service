@@ -57,9 +57,17 @@ application:
     name: ${APPLICATION_SERVICE_NAME:platform-service}
   environment: ${APPLICATION_ENVIRONMENT:development}
 
+cors:
+  allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:5173}
+  allowed-methods: ${CORS_ALLOWED_METHODS:GET,POST,PUT,PATCH,DELETE,OPTIONS}
+  allowed-headers: ${CORS_ALLOWED_HEADERS:Authorization,Content-Type,Accept,Origin,X-Requested-With}
+  exposed-headers: ${CORS_EXPOSED_HEADERS:}
+  allow-credentials: ${CORS_ALLOW_CREDENTIALS:false}
+  max-age: ${CORS_MAX_AGE:3600}
+
 whatsapp:
   gateway:
-    base-url: ${WHATSAPP_GATEWAY_BASE_URL:http://localhost:3000}
+    base-url: ${WHATSAPP_GATEWAY_BASE_URL:http://192.168.0.107:8009}
   session:
     pending-expiration: ${WHATSAPP_SESSION_PENDING_EXPIRATION:1m}
 

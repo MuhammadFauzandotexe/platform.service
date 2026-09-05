@@ -17,6 +17,18 @@ public class WhatsAppSessionExceptionHandler {
         return error(HttpStatus.NOT_FOUND, "Account not found", exception.getMessage());
     }
 
+    @ExceptionHandler(WhatsAppSessionNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleSessionNotFound(
+            WhatsAppSessionNotFoundException exception) {
+        return error(HttpStatus.NOT_FOUND, "SESSION_NOT_FOUND", exception.getMessage());
+    }
+
+    @ExceptionHandler(WhatsAppSessionAlreadyExistsException.class)
+    public ResponseEntity<Map<String, String>> handleSessionAlreadyExists(
+            WhatsAppSessionAlreadyExistsException exception) {
+        return error(HttpStatus.CONFLICT, "SESSION_ALREADY_EXISTS", exception.getMessage());
+    }
+
     @ExceptionHandler(WhatsAppGatewayException.class)
     public ResponseEntity<Map<String, String>> handleGatewayFailure(
             WhatsAppGatewayException exception) {

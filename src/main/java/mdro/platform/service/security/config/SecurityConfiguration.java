@@ -11,6 +11,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfigurationSource;
 import mdro.platform.service.security.jwt.JwtAuthenticationFilter;
 import mdro.platform.service.security.jwt.JwtProperties;
 
@@ -29,12 +30,15 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http,
             JwtAuthenticationFilter jwtAuthenticationFilter,
-            AuthenticationEntryPoint authenticationEntryPoint) throws Exception {
+            AuthenticationEntryPoint authenticationEntryPoint,
+            CorsConfigurationSource corsConfigurationSource) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
+                .cors(cors -> cors.configurationSource(corsConfigurationSource))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .exceptionHandling(exceptions -> exceptions.authenticationEntryPoint(authenticationEntryPoint))
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/accounts", "/api/auth/login").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

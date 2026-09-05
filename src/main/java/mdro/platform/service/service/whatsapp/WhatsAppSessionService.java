@@ -17,6 +17,7 @@ import mdro.platform.service.entity.WhatsAppSession;
 import mdro.platform.service.integration.whatsapp.client.WhatsAppGatewayClient;
 import mdro.platform.service.integration.whatsapp.exception.WhatsAppGatewayException;
 import mdro.platform.service.exception.whatsapp.WhatsAppSessionAccountNotFoundException;
+import mdro.platform.service.exception.whatsapp.WhatsAppSessionAlreadyExistsException;
 import mdro.platform.service.repository.AccountRepository;
 import mdro.platform.service.repository.WhatsAppSessionRepository;
 import mdro.platform.service.security.principal.AccountPrincipal;
@@ -39,6 +40,13 @@ public class WhatsAppSessionService {
             AccountPrincipal principal) {
         Account account = accountRepository.findById(principal.accountId())
                 .orElseThrow(() -> new WhatsAppSessionAccountNotFoundException(principal.accountId()));
+
+        if (sessionRepository.existsByAccount_IdAndSessionNameAndStatus(
+                account.getId(),
+                request.sessionName(),
+                WhatsAppSessionStatus.CONNECTED)) {
+            throw new WhatsAppSessionAlreadyExistsException(request.sessionName());
+        }
 
         UUID sessionId = UUID.randomUUID();
         WhatsAppSession session = sessionRepository.save(
