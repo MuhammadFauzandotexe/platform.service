@@ -21,8 +21,6 @@ import mdro.platform.service.repository.AccountRepository;
 import mdro.platform.service.repository.WhatsAppSessionRepository;
 import mdro.platform.service.security.principal.AccountPrincipal;
 import mdro.platform.service.model.whatsapp.WhatsAppSessionStatus;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -30,8 +28,6 @@ import org.springframework.stereotype.Service;
 public class WhatsAppSessionService {
 
     private static final Duration QR_EXPIRATION = Duration.ofSeconds(60);
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(WhatsAppSessionService.class);
 
     private final AccountRepository accountRepository;
     private final WhatsAppSessionRepository sessionRepository;
@@ -105,26 +101,30 @@ public class WhatsAppSessionService {
             WhatsAppSession platformSession,
             mdro.platform.service.integration.whatsapp.dto.WhatsAppSessionResponse gatewaySession,
             OffsetDateTime now) {
+        if (gatewaySession != null) {
+            WhatsAppSessionStatus gatewayStatus = parseStatus(gatewaySession.status());
+            return switch (gatewayStatus) {
+                case CONNECTED -> SessionSynchronizationAction.UPDATE_TO_CONNECTED;
+                case DISCONNECTED -> SessionSynchronizationAction.DELETE_GATEWAY_ONLY;
+                case QR_READY -> isExpired(platformSession, now)
+                        ? SessionSynchronizationAction.DELETE_GATEWAY_AND_DB
+                        : SessionSynchronizationAction.UPDATE_TO_QR_READY;
+                default -> SessionSynchronizationAction.KEEP;
+            };
+        }
 
-        LOGGER.info(">>>>>>>>>>>>>>>>>>>>>>>> now {}, platform service {}, is must delete {}", now, platformSession.getExpiresAt(),!platformSession.getExpiresAt().isAfter(now));
-
-        if (platformSession.getStatus() != WhatsAppSessionStatus.CONNECTED
-                && platformSession.getExpiresAt() != null
-                && !platformSession.getExpiresAt().isAfter(now)) {
+        if (isExpired(platformSession, now)) {
             return SessionSynchronizationAction.DELETE_GATEWAY_AND_DB;
         }
-        if (gatewaySession == null) {
-            return platformSession.getStatus() == WhatsAppSessionStatus.CONNECTED
-                    ? SessionSynchronizationAction.UPDATE_TO_DISCONNECTED
-                    : SessionSynchronizationAction.KEEP;
-        }
-        WhatsAppSessionStatus gatewayStatus = parseStatus(gatewaySession.status());
-        return switch (gatewayStatus) {
-            case DISCONNECTED -> SessionSynchronizationAction.DELETE_GATEWAY_ONLY;
-            case CONNECTED -> SessionSynchronizationAction.UPDATE_TO_CONNECTED;
-            case QR_READY -> SessionSynchronizationAction.UPDATE_TO_QR_READY;
-            default -> SessionSynchronizationAction.KEEP;
-        };
+        return platformSession.getStatus() == WhatsAppSessionStatus.CONNECTED
+                ? SessionSynchronizationAction.UPDATE_TO_DISCONNECTED
+                : SessionSynchronizationAction.KEEP;
+    }
+
+    private boolean isExpired(WhatsAppSession platformSession, OffsetDateTime now) {
+        return platformSession.getStatus() != WhatsAppSessionStatus.CONNECTED
+                && platformSession.getExpiresAt() != null
+                && !platformSession.getExpiresAt().isAfter(now);
     }
 
     private void executeSynchronizationAction(
