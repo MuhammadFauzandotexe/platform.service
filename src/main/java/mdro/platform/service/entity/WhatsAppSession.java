@@ -82,6 +82,26 @@ public class WhatsAppSession {
         this.status = WhatsAppSessionStatus.FAILED;
     }
 
+    public void markConnected(OffsetDateTime connectedAt) {
+        this.status = WhatsAppSessionStatus.CONNECTED;
+        this.expiresAt = null;
+        if (this.connectedAt == null) {
+            this.connectedAt = connectedAt;
+        }
+    }
+
+    public void markQrReady() {
+        this.status = WhatsAppSessionStatus.QR_READY;
+    }
+
+    public void markDisconnected(OffsetDateTime disconnectedAt) {
+        this.status = WhatsAppSessionStatus.DISCONNECTED;
+        this.expiresAt = null;
+        if (this.disconnectedAt == null) {
+            this.disconnectedAt = disconnectedAt;
+        }
+    }
+
     @PrePersist
     protected void onCreate() {
         OffsetDateTime now = OffsetDateTime.now();

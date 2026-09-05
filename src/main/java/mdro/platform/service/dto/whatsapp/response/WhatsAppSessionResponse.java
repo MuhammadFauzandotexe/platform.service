@@ -11,5 +11,10 @@ public record WhatsAppSessionResponse(
         WhatsAppSessionStatus status,
         String qrCode,
         OffsetDateTime qrExpiresAt,
-        OffsetDateTime expiresAt) {
+        OffsetDateTime expiresAt,
+        String phoneNumber,
+        OffsetDateTime connectedAt,
+        OffsetDateTime disconnectedAt,
+        OffsetDateTime createdAt,
+        OffsetDateTime updatedAt) {
 }
