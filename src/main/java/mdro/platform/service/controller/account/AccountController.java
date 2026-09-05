@@ -1,0 +1,39 @@
+package mdro.platform.service.controller.account;
+
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
+import mdro.platform.service.dto.account.request.AccountRegistrationRequest;
+import mdro.platform.service.dto.account.response.AccountRegistrationResponse;
+import mdro.platform.service.entity.Account;
+import mdro.platform.service.service.account.AccountRegistrationService;
+
+@RestController
+@RequestMapping("/api/accounts")
+@RequiredArgsConstructor
+public class AccountController {
+
+    private static final String SUCCESS_MESSAGE =
+            "Account created successfully. Verification is required before the account becomes fully verified.";
+
+    private final AccountRegistrationService registrationService;
+
+    @PostMapping
+    public ResponseEntity<AccountRegistrationResponse> register(
+            @Valid @RequestBody AccountRegistrationRequest request) {
+        Account account = registrationService.register(request.email(), request.password());
+        AccountRegistrationResponse response = new AccountRegistrationResponse(
+                account.getId(),
+                account.getEmail(),
+                account.getAccountStatus(),
+                account.getAccountPlan(),
+                SUCCESS_MESSAGE
+        );
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+}

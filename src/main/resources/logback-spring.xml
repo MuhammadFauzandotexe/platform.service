@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty scope="context" name="SERVICE_NAME"
+                    source="application.service.name" defaultValue="platform-service"/>
+    <springProperty scope="context" name="ENVIRONMENT"
+                    source="application.environment" defaultValue="development"/>
+    <springProperty scope="context" name="LOG_FILE"
+                    source="logging.file.name" defaultValue="logs/platform-service.log"/>
+    <springProperty scope="context" name="MAX_FILE_SIZE"
+                    source="logging.file.max-size" defaultValue="10MB"/>
+    <springProperty scope="context" name="MAX_HISTORY"
+                    source="logging.file.max-history" defaultValue="30"/>
+    <springProperty scope="context" name="TOTAL_SIZE_CAP"
+                    source="logging.file.total-size-cap" defaultValue="1GB"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp/>
+                <logLevel/>
+                <loggerName fieldName="category"/>
+                <threadName/>
+                <message/>
+                <mdc>
+                    <includeMdcKeyName>correlationId</includeMdcKeyName>
+                </mdc>
+                <pattern>
+                    <pattern>
+                        {"service":"${SERVICE_NAME}","environment":"${ENVIRONMENT}"}
+                    </pattern>
+                </pattern>
+                <stackTrace/>
+            </providers>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp/>
+                <logLevel/>
+                <loggerName fieldName="category"/>
+                <threadName/>
+                <message/>
+                <mdc>
+                    <includeMdcKeyName>correlationId</includeMdcKeyName>
+                </mdc>
+                <pattern>
+                    <pattern>
+                        {"service":"${SERVICE_NAME}","environment":"${ENVIRONMENT}"}
+                    </pattern>
+                </pattern>
+                <stackTrace/>
+            </providers>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+            <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
+            <maxHistory>${MAX_HISTORY}</maxHistory>
+            <totalSizeCap>${TOTAL_SIZE_CAP}</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

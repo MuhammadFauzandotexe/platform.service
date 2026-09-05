@@ -1,0 +1,380 @@
+2026-09-05T16:07:32.754+07:00 INFO  [main] mdro.platform.service.Application [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Starting Application using Java 17.0.14 with PID 28992 (D:\Project\wa-automate\platform.service\target\classes started by mfauz in D:\Project\wa-automate\platform.service)
+2026-09-05T16:07:32.760+07:00 INFO  [main] mdro.platform.service.Application [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - No active profile set, falling back to 1 default profile: "default"
+2026-09-05T16:07:33.549+07:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-05T16:07:33.585+07:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Finished Spring Data repository scanning in 18 ms. Found 0 JPA repository interfaces.
+2026-09-05T16:07:34.231+07:00 INFO  [main] o.s.boot.tomcat.TomcatWebServer [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Tomcat initialized with port 8083 (http)
+2026-09-05T16:07:34.249+07:00 INFO  [main] o.a.coyote.http11.Http11NioProtocol [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Initializing ProtocolHandler ["http-nio-8083"]
+2026-09-05T16:07:34.254+07:00 INFO  [main] o.a.catalina.core.StandardService [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Starting service [Tomcat]
+2026-09-05T16:07:34.255+07:00 INFO  [main] o.a.catalina.core.StandardEngine [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-09-05T16:07:34.415+07:00 INFO  [main] o.s.b.w.c.s.WebApplicationContextInitializer [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Root WebApplicationContext: initialization completed in 1578 ms
+2026-09-05T16:07:34.686+07:00 INFO  [main] org.hibernate.orm.jpa [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-05T16:07:34.816+07:00 INFO  [main] org.hibernate.orm.core [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-09-05T16:07:35.512+07:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-05T16:07:35.569+07:00 INFO  [main] com.zaxxer.hikari.HikariDataSource [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Starting...
+2026-09-05T16:07:37.536+07:00 INFO  [main] com.zaxxer.hikari.pool.HikariPool [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@b48f39
+2026-09-05T16:07:37.539+07:00 INFO  [main] com.zaxxer.hikari.HikariDataSource [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Start completed.
+2026-09-05T16:07:37.629+07:00 WARN  [main] org.hibernate.orm.deprecation [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-05T16:07:37.716+07:00 INFO  [main] o.hibernate.orm.connections.pooling [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://192.168.0.107:5432/service-payment]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: service-payment/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-05T16:07:38.539+07:00 INFO  [main] org.hibernate.orm.core [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-05T16:07:38.918+07:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05T16:07:38.984+07:00 WARN  [main] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-05T16:07:39.493+07:00 INFO  [main] o.a.coyote.http11.Http11NioProtocol [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Starting ProtocolHandler ["http-nio-8083"]
+2026-09-05T16:07:39.529+07:00 INFO  [main] o.s.boot.tomcat.TomcatWebServer [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Tomcat started on port 8083 (http) with context path '/'
+2026-09-05T16:07:39.536+07:00 INFO  [main] mdro.platform.service.Application [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Started Application in 7.765 seconds (process running for 8.338)
+2026-09-05T16:09:42.041+07:00 INFO  [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-05T16:09:42.179+07:00 INFO  [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Graceful shutdown complete
+2026-09-05T16:09:42.186+07:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05T16:09:42.190+07:00 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Shutdown initiated...
+2026-09-05T16:09:42.198+07:00 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Shutdown completed.
+2026-09-05T16:22:51.383+07:00 INFO  [main] m.platform.service.ApplicationTests [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Starting ApplicationTests using Java 17.0.14 with PID 31544 (started by mfauz in D:\Project\wa-automate\platform.service)
+2026-09-05T16:22:51.388+07:00 INFO  [main] m.platform.service.ApplicationTests [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - No active profile set, falling back to 1 default profile: "default"
+2026-09-05T16:22:51.999+07:00 INFO  [background-preinit] o.h.validator.internal.util.Version [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HV000001: Hibernate Validator 9.1.3.Final
+2026-09-05T16:22:52.776+07:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-05T16:22:53.065+07:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Finished Spring Data repository scanning in 229 ms. Found 1 JPA repository interface.
+2026-09-05T16:22:55.752+07:00 INFO  [main] org.hibernate.orm.jpa [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-05T16:22:55.923+07:00 INFO  [main] org.hibernate.orm.core [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-09-05T16:22:57.275+07:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-05T16:22:57.370+07:00 INFO  [main] com.zaxxer.hikari.HikariDataSource [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Starting...
+2026-09-05T16:22:57.770+07:00 INFO  [main] com.zaxxer.hikari.pool.HikariPool [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1b99927
+2026-09-05T16:22:57.772+07:00 INFO  [main] com.zaxxer.hikari.HikariDataSource [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Start completed.
+2026-09-05T16:22:57.880+07:00 WARN  [main] org.hibernate.orm.deprecation [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-05T16:22:57.973+07:00 INFO  [main] o.hibernate.orm.connections.pooling [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://192.168.0.107:5432/service-payment]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: service-payment/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-05T16:23:00.874+07:00 INFO  [main] org.hibernate.orm.core [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-05T16:23:01.095+07:00 ERROR [main] o.s.o.j.LocalContainerEntityManagerFactoryBean [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Failed to initialize JPA EntityManagerFactory: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema validation: missing table [accounts]
+2026-09-05T16:23:01.097+07:00 WARN  [main] o.s.w.c.s.GenericWebApplicationContext [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema validation: missing table [accounts]
+2026-09-05T16:23:01.098+07:00 INFO  [main] com.zaxxer.hikari.HikariDataSource [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Shutdown initiated...
+2026-09-05T16:23:01.138+07:00 INFO  [main] com.zaxxer.hikari.HikariDataSource [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Shutdown completed.
+2026-09-05T16:23:01.166+07:00 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-09-05T16:23:01.268+07:00 ERROR [main] o.s.boot.SpringApplication [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema validation: missing table [accounts]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1815)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$2(SpringBootContextLoader.java:155)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1465)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:600)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:155)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:114)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:247)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.lambda$loadContext$0(DefaultCacheAwareContextLoaderDelegate.java:167)
+	at org.springframework.test.context.cache.DefaultContextCache.put(DefaultContextCache.java:214)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:160)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:128)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:242)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$1(ClassBasedTestDescriptor.java:423)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:428)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$0(ClassBasedTestDescriptor.java:422)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:422)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$0(ClassBasedTestDescriptor.java:334)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:333)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$1(ClassBasedTestDescriptor.java:322)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$0(ClassBasedTestDescriptor.java:321)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:127)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:126)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:70)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$0(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:110)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:36)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:52)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:246)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:218)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:179)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:66)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:157)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:65)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:125)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:58)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$2(InterceptingLauncher.java:57)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:56)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:58)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.apache.maven.surefire.api.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:125)
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.executeWithCancellationToken(LauncherAdapter.java:68)
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.execute(LauncherAdapter.java:54)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:203)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:168)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:136)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: jakarta.persistence.PersistenceException: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema validation: missing table [accounts]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:448)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811)
+	... 108 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema validation: missing table [accounts]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:128)
+	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:42)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:75)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:278)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327)
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:458)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1452)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436)
+	... 112 common frames omitted
+2026-09-05T16:23:01.280+07:00 WARN  [main] o.s.test.context.TestContextManager [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [mdro.platform.service.ApplicationTests@351197]
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@11bd673 testClass = mdro.platform.service.ApplicationTests, locations = [], classes = [mdro.platform.service.Application], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.PropertyMappingContextCustomizer@0, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@fac80, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1500940, org.springframework.boot.test.autoconfigure.OnFailureConditionReportContextCustomizerFactory$OnFailureConditionReportContextCustomizer@49dadf, org.springframework.test.context.support.DynamicPropertiesContextCustomizer@0, org.springframework.boot.webmvc.test.autoconfigure.WebDriverContextCustomizer@9658b5, org.springframework.boot.web.server.context.SpringBootTestRandomPortContextCustomizer@eecdc2, org.springframework.boot.test.context.SpringBootTestAnnotation@1f9b78cf], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.lambda$loadContext$0(DefaultCacheAwareContextLoaderDelegate.java:195)
+	at org.springframework.test.context.cache.DefaultContextCache.put(DefaultContextCache.java:214)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:160)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:128)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:242)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$1(ClassBasedTestDescriptor.java:423)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:428)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$0(ClassBasedTestDescriptor.java:422)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:422)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$0(ClassBasedTestDescriptor.java:334)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:333)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$1(ClassBasedTestDescriptor.java:322)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$0(ClassBasedTestDescriptor.java:321)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:127)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:126)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:70)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$0(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:110)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:36)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:52)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:246)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:218)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:179)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:66)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:157)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:65)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:125)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:58)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$2(InterceptingLauncher.java:57)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:56)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:58)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.apache.maven.surefire.api.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:125)
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.executeWithCancellationToken(LauncherAdapter.java:68)
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.execute(LauncherAdapter.java:54)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:203)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:168)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:136)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema validation: missing table [accounts]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1815)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$2(SpringBootContextLoader.java:155)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1465)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:600)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:155)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:114)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:247)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.lambda$loadContext$0(DefaultCacheAwareContextLoaderDelegate.java:167)
+	... 88 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema validation: missing table [accounts]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:448)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1862)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1811)
+	... 108 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema validation: missing table [accounts]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:128)
+	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:42)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:75)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:278)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$1(SchemaManagementToolCoordinator.java:101)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:100)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:35)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:33)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327)
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:458)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1452)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436)
+	... 112 common frames omitted
+2026-09-05T16:23:47.745+07:00 INFO  [main] m.platform.service.ApplicationTests [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Starting ApplicationTests using Java 17.0.14 with PID 25592 (started by mfauz in D:\Project\wa-automate\platform.service)
+2026-09-05T16:23:47.747+07:00 INFO  [main] m.platform.service.ApplicationTests [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - No active profile set, falling back to 1 default profile: "default"
+2026-09-05T16:23:48.206+07:00 INFO  [background-preinit] o.h.validator.internal.util.Version [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HV000001: Hibernate Validator 9.1.3.Final
+2026-09-05T16:23:48.790+07:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-05T16:23:48.931+07:00 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Finished Spring Data repository scanning in 120 ms. Found 1 JPA repository interface.
+2026-09-05T16:23:49.556+07:00 INFO  [main] com.zaxxer.hikari.HikariDataSource [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Starting...
+2026-09-05T16:23:49.996+07:00 INFO  [main] com.zaxxer.hikari.pool.HikariPool [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@358dc7
+2026-09-05T16:23:49.998+07:00 INFO  [main] com.zaxxer.hikari.HikariDataSource [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Start completed.
+2026-09-05T16:23:50.196+07:00 INFO  [main] org.hibernate.orm.jpa [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-05T16:23:50.354+07:00 INFO  [main] org.hibernate.orm.core [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-09-05T16:23:51.459+07:00 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-05T16:23:51.683+07:00 WARN  [main] org.hibernate.orm.deprecation [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-09-05T16:23:51.737+07:00 INFO  [main] o.hibernate.orm.connections.pooling [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://192.168.0.107:5432/service-payment]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.10
+	Default catalog/schema: service-payment/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-05T16:23:54.931+07:00 INFO  [main] org.hibernate.orm.core [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-05T16:23:55.169+07:00 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05T16:23:55.389+07:00 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactories [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-05T16:23:55.913+07:00 WARN  [main] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-05T16:23:56.791+07:00 INFO  [main] m.platform.service.ApplicationTests [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Started ApplicationTests in 9.85 seconds (process running for 11.791)
+2026-09-05T16:23:58.032+07:00 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-05T16:23:58.034+07:00 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Shutdown initiated...
+2026-09-05T16:23:58.040+07:00 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource [service=platform-service event= messageId= topic= partition= offset= consumerGroup=] - HikariPool-1 - Shutdown completed.

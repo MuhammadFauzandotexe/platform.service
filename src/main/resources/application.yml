@@ -1,0 +1,57 @@
+server:
+  port: ${SERVER_PORT:8083}
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:${APPLICATION_SERVICE_NAME:platform-service}}
+  # ==========================================
+  # DATABASE - PostgreSQL
+  # ==========================================
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://192.168.0.107:5432/service-payment}
+    username: ${DATABASE_USERNAME:service-payment}
+    password: ${DATABASE_PASSWORD:service-payment}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        use_sql_comments: true
+  sql:
+    init:
+      mode: always
+# ==========================================
+# LOGGING CONFIGURATION
+# ==========================================
+logging:
+  structured:
+    format:
+      console: ${LOGGING_STRUCTURED_FORMAT:logstash}
+      file: ${LOGGING_STRUCTURED_FORMAT:logstash}
+  file:
+    name: ${LOG_FILE:logs/platform-service.log}
+    max-size: ${LOG_MAX_FILE_SIZE:10MB}
+    max-history: ${LOG_MAX_HISTORY:30}
+    total-size-cap: ${LOG_TOTAL_SIZE_CAP:1GB}
+
+  level:
+    root: INFO
+    org.springframework.kafka: INFO
+    org.hibernate.SQL: WARN
+    org.hibernate.type.descriptor.sql.BasicBinder: WARN
+
+application:
+  service:
+    name: ${APPLICATION_SERVICE_NAME:platform-service}
+  environment: ${APPLICATION_ENVIRONMENT:development}
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:change-this-development-secret-to-a-long-random-value}
+    expiration: ${JWT_EXPIRATION:3600}
