@@ -33,6 +33,12 @@ public class KnowledgeExceptionHandler {
         return error(HttpStatus.BAD_GATEWAY, "Knowledge ingestion failed", exception.getMessage());
     }
 
+    @ExceptionHandler(KnowledgeQueryException.class)
+    public ResponseEntity<Map<String, Object>> handleQuery() {
+        return error(HttpStatus.BAD_GATEWAY, "Knowledge query failed",
+                "Knowledge query could not be completed");
+    }
+
     @ExceptionHandler(TenantAuthorizationException.class)
     public ResponseEntity<Map<String, Object>> handleTenantAuthorization() {
         return error(HttpStatus.FORBIDDEN, "Forbidden", "Authenticated account is not authorized");

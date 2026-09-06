@@ -89,6 +89,10 @@ qdrant:
 knowledge:
   chunk-size: ${KNOWLEDGE_CHUNK_SIZE:1000}
   chunk-overlap: ${KNOWLEDGE_CHUNK_OVERLAP:150}
+  query:
+    default-limit: ${KNOWLEDGE_QUERY_DEFAULT_LIMIT:5}
+    max-limit: ${KNOWLEDGE_QUERY_MAX_LIMIT:10}
+    default-score-threshold: ${KNOWLEDGE_QUERY_DEFAULT_SCORE_THRESHOLD:0.0}
 
 security:
   jwt:

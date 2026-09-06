@@ -5,6 +5,8 @@ import mdro.platform.service.entity.Account;
 import mdro.platform.service.model.account.AccountStatus;
 import mdro.platform.service.repository.AccountRepository;
 import mdro.platform.service.security.principal.AccountPrincipal;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,6 +14,14 @@ import org.springframework.stereotype.Service;
 public class TenantContextResolver {
 
     private final AccountRepository accountRepository;
+
+    public AuthorizedTenantContext resolveCurrentTenant() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !(authentication.getPrincipal() instanceof AccountPrincipal principal)) {
+            throw new TenantAuthorizationException("Authenticated account could not be resolved");
+        }
+        return resolveCurrentTenant(principal);
+    }
 
     public AuthorizedTenantContext resolveCurrentTenant(AccountPrincipal principal) {
         if (principal == null || principal.accountId() == null) {
