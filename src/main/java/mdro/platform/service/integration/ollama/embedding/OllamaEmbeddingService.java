@@ -7,6 +7,7 @@ import mdro.platform.service.integration.ollama.dto.EmbeddingRequest;
 import mdro.platform.service.integration.ollama.dto.EmbeddingResponse;
 import mdro.platform.service.integration.ollama.exception.OllamaEmbeddingException;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -39,7 +40,7 @@ public class OllamaEmbeddingService implements EmbeddingService {
                     .bodyValue(new EmbeddingRequest(properties.getEmbedding().getModel(), text))
                     .retrieve()
                     .onStatus(
-                            status -> status.isError(),
+                            HttpStatusCode::isError,
                             clientResponse -> clientResponse
                                     .bodyToMono(String.class)
                                     .defaultIfEmpty("")
