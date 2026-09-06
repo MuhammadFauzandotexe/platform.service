@@ -10,6 +10,7 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 @RestControllerAdvice(assignableTypes = KnowledgeController.class)
 public class KnowledgeExceptionHandler {
@@ -37,6 +38,27 @@ public class KnowledgeExceptionHandler {
     public ResponseEntity<Map<String, Object>> handleQuery() {
         return error(HttpStatus.BAD_GATEWAY, "Knowledge query failed",
                 "Knowledge query could not be completed");
+    }
+
+    @ExceptionHandler(KnowledgeManagementException.class)
+    public ResponseEntity<Map<String, Object>> handleManagement() {
+        return error(HttpStatus.BAD_GATEWAY, "Knowledge management failed",
+                "Knowledge operation could not be completed");
+    }
+
+    @ExceptionHandler(KnowledgeNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleNotFound() {
+        return error(HttpStatus.NOT_FOUND, "Not found", "Knowledge was not found");
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<Map<String, Object>> handleTypeMismatch() {
+        return error(HttpStatus.BAD_REQUEST, "Invalid request", "Request parameter is invalid");
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, Object>> handleIllegalArgument(IllegalArgumentException exception) {
+        return error(HttpStatus.BAD_REQUEST, "Invalid request", exception.getMessage());
     }
 
     @ExceptionHandler(TenantAuthorizationException.class)

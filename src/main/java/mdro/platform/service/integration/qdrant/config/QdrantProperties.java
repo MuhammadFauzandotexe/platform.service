@@ -17,6 +17,8 @@ public class QdrantProperties {
     private Duration timeout = Duration.ofSeconds(30);
     private int defaultLimit = 3;
     private int maxLimit = 10;
+    private int knowledgeManagementDefaultLimit = 20;
+    private int knowledgeManagementMaxLimit = 100;
     private double defaultScoreThreshold = 0.6;
 
     public int getVectorSize() {

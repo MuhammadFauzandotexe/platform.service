@@ -219,6 +219,83 @@ class QdrantServiceImplTest {
         assertEquals(503, exception.getHttpStatusCode());
     }
 
+    @Test
+    void scrollsKnowledgeWithTenantFilterWithoutVectorsAndMapsCursor() {
+        UUID tenantId = UUID.fromString("8a88b11b-140d-4cb3-bf62-e51eab7c4262");
+        server.createContext("/collections/knowledge/points/scroll", exchange -> {
+            String body = readBody(exchange);
+            assertTrue(body.contains("\"limit\":20"));
+            assertTrue(body.contains("\"with_payload\":true"));
+            assertTrue(body.contains("\"with_vector\":false"));
+            assertTrue(body.contains("\"key\":\"tenantId\""));
+            assertTrue(body.contains("\"value\":\"" + tenantId + "\""));
+            respond(exchange, 200, """
+                    {
+                      "result": {
+                        "points": [{
+                          "id": "ee3ddd6f-2eac-4781-9d7b-1353ad77430b",
+                          "payload": {
+                            "tenantId": "8a88b11b-140d-4cb3-bf62-e51eab7c4262",
+                            "documentId": "f652bbf9-c572-4ea7-9fae-ecb5ef0b40c6",
+                            "chunkId": "842c19aa-804f-4c6c-9227-47ed92fccd28",
+                            "content": "return policy",
+                            "chunkIndex": 0,
+                            "createdAt": "2026-09-06T08:01:04.299649600Z"
+                          }
+                        }],
+                        "next_page_offset": "f0f1e2d3-c4b5-4678-9012-345678901234"
+                      },
+                      "status": "ok",
+                      "time": 0.001
+                    }
+                    """);
+        });
+        server.start();
+
+        QdrantKnowledgePage page = service.scrollKnowledge(tenantId, 20, null);
+
+        assertEquals(1, page.points().size());
+        assertEquals("f0f1e2d3-c4b5-4678-9012-345678901234", page.nextCursor());
+        assertEquals("return policy", page.points().get(0).content());
+    }
+
+    @Test
+    void deletesOnlyWhenPointAndTenantFiltersMatch() {
+        UUID tenantId = UUID.fromString("8a88b11b-140d-4cb3-bf62-e51eab7c4262");
+        UUID pointId = UUID.fromString("ee3ddd6f-2eac-4781-9d7b-1353ad77430b");
+        server.createContext("/collections/knowledge/points/scroll", exchange -> {
+            String body = readBody(exchange);
+            assertTrue(body.contains("\"has_id\":[\"" + pointId + "\"]"));
+            assertTrue(body.contains("\"value\":\"" + tenantId + "\""));
+            respond(exchange, 200, """
+                    {
+                      "result": {
+                        "points": [{
+                          "id": "ee3ddd6f-2eac-4781-9d7b-1353ad77430b",
+                          "payload": {
+                            "tenantId": "8a88b11b-140d-4cb3-bf62-e51eab7c4262",
+                            "documentId": "f652bbf9-c572-4ea7-9fae-ecb5ef0b40c6",
+                            "chunkId": "842c19aa-804f-4c6c-9227-47ed92fccd28"
+                          }
+                        }]
+                      },
+                      "status": "ok"
+                    }
+                    """);
+        });
+        server.createContext("/collections/knowledge/points/delete", exchange -> {
+            String body = readBody(exchange);
+            assertTrue(body.contains("\"has_id\":[\"" + pointId + "\"]"));
+            assertTrue(body.contains("\"key\":\"tenantId\""));
+            respond(exchange, 200, """
+                    {"result":{"status":"acknowledged"},"status":"ok"}
+                    """);
+        });
+        server.start();
+
+        assertTrue(service.deleteKnowledgeForTenant(pointId, tenantId));
+    }
+
     private static List<Float> vectorOfSize(int size) {
         return java.util.stream.IntStream.range(0, size)
                 .mapToObj(index -> 0.1f)

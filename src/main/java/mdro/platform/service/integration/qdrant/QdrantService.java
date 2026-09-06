@@ -13,4 +13,8 @@ public interface QdrantService {
             UUID tenantId,
             Integer limit,
             Double scoreThreshold);
+
+    QdrantKnowledgePage scrollKnowledge(UUID tenantId, int limit, String cursor);
+
+    boolean deleteKnowledgeForTenant(UUID pointId, UUID tenantId);
 }
