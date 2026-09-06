@@ -79,9 +79,13 @@ ollama:
 
 qdrant:
   base-url: ${QDRANT_BASE_URL:http://192.168.0.107:6333}
-  collection-name: ${QDRANT_COLLECTION_NAME:knowledge}
+  collection-name: ${QDRANT_COLLECTION_NAME:knowlege}
   vector-size: ${QDRANT_VECTOR_SIZE:4096}
   timeout: ${QDRANT_TIMEOUT:30s}
+
+knowledge:
+  chunk-size: ${KNOWLEDGE_CHUNK_SIZE:1000}
+  chunk-overlap: ${KNOWLEDGE_CHUNK_OVERLAP:150}
 
 security:
   jwt:
