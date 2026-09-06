@@ -71,6 +71,12 @@ whatsapp:
   session:
     pending-expiration: ${WHATSAPP_SESSION_PENDING_EXPIRATION:1m}
 
+ollama:
+  base-url: ${OLLAMA_BASE_URL:http://192.168.0.107:11434}
+  embedding:
+    model: ${OLLAMA_EMBEDDING_MODEL:qwen3-embedding}
+    timeout: ${OLLAMA_EMBEDDING_TIMEOUT:120s}
+
 security:
   jwt:
     secret: ${JWT_SECRET:change-this-development-secret-to-a-long-random-value}
