@@ -6,6 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import mdro.platform.service.entity.Account;
 import mdro.platform.service.exception.auth.InvalidCredentialsException;
+import mdro.platform.service.model.account.AccountStatus;
 import mdro.platform.service.repository.AccountRepository;
 import mdro.platform.service.security.jwt.JwtService;
 import mdro.platform.service.security.jwt.JwtProperties;
@@ -28,6 +29,10 @@ public class AuthenticationService {
                 .orElseThrow(InvalidCredentialsException::new);
 
         if (!passwordEncoder.matches(request.password(), account.getPasswordHash())) {
+            throw new InvalidCredentialsException();
+        }
+        if (account.getAccountStatus() == AccountStatus.SUSPENDED
+                || account.getAccountStatus() == AccountStatus.DISABLED) {
             throw new InvalidCredentialsException();
         }
 

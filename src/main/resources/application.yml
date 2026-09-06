@@ -89,5 +89,5 @@ knowledge:
 
 security:
   jwt:
-    secret: ${JWT_SECRET:change-this-development-secret-to-a-long-random-value}
+    secret: ${JWT_SECRET:716d3a6e-6711-408e-81da-c260d4ed5216}
     expiration: ${JWT_EXPIRATION:3600}

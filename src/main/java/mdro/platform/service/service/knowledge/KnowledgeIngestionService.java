@@ -14,6 +14,7 @@ import mdro.platform.service.exception.knowledge.KnowledgeIngestionException;
 import mdro.platform.service.integration.ollama.embedding.EmbeddingService;
 import mdro.platform.service.integration.qdrant.QdrantService;
 import mdro.platform.service.integration.qdrant.config.QdrantProperties;
+import mdro.platform.service.security.tenant.AuthorizedTenantContext;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -36,7 +37,9 @@ public class KnowledgeIngestionService {
         this.qdrantProperties = qdrantProperties;
     }
 
-    public KnowledgeIngestionResponse ingest(KnowledgeIngestionRequest request) {
+    public KnowledgeIngestionResponse ingest(
+            AuthorizedTenantContext tenantContext,
+            KnowledgeIngestionRequest request) {
         List<String> chunks = textChunkingService.chunk(request.content());
         List<KnowledgeChunkResult> results = new ArrayList<>();
 
@@ -50,18 +53,18 @@ public class KnowledgeIngestionService {
                 validateEmbedding(embedding);
 
                 Map<String, Object> payload = new LinkedHashMap<>();
-                payload.put("tenantId", request.tenantId().toString());
                 payload.put("documentId", request.documentId().toString());
                 payload.put("chunkId", chunkId.toString());
                 payload.put("content", chunk);
                 payload.put("chunkIndex", chunkIndex);
                 payload.put("createdAt", Instant.now().toString());
+                payload.put("tenantId", tenantContext.tenantId().toString());
 
                 qdrantService.upsertVector(pointId, embedding, payload);
                 results.add(new KnowledgeChunkResult(pointId, chunkId, chunkIndex, true));
                 log.info(
                         "Knowledge chunk ingested successfully. Tenant ID: {}, Document ID: {}, Chunk index: {}, Embedding dimension: {}, Point ID: {}",
-                        request.tenantId(),
+                        tenantContext.tenantId(),
                         request.documentId(),
                         chunkIndex,
                         embedding.size(),
@@ -69,7 +72,7 @@ public class KnowledgeIngestionService {
             } catch (RuntimeException exception) {
                 log.error(
                         "Knowledge chunk ingestion failed. Tenant ID: {}, Document ID: {}, Chunk index: {}, Point ID: {}",
-                        request.tenantId(),
+                        tenantContext.tenantId(),
                         request.documentId(),
                         chunkIndex,
                         pointId,
@@ -82,7 +85,7 @@ public class KnowledgeIngestionService {
         }
 
         return new KnowledgeIngestionResponse(
-                request.tenantId(),
+                tenantContext.tenantId(),
                 request.documentId(),
                 chunks.size(),
                 results.size(),

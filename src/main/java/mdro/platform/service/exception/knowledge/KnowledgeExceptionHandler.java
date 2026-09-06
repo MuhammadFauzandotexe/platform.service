@@ -3,6 +3,7 @@ package mdro.platform.service.exception.knowledge;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import mdro.platform.service.controller.knowledge.KnowledgeController;
+import mdro.platform.service.security.tenant.TenantAuthorizationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -30,6 +31,11 @@ public class KnowledgeExceptionHandler {
     @ExceptionHandler(KnowledgeIngestionException.class)
     public ResponseEntity<Map<String, Object>> handleIngestion(KnowledgeIngestionException exception) {
         return error(HttpStatus.BAD_GATEWAY, "Knowledge ingestion failed", exception.getMessage());
+    }
+
+    @ExceptionHandler(TenantAuthorizationException.class)
+    public ResponseEntity<Map<String, Object>> handleTenantAuthorization() {
+        return error(HttpStatus.FORBIDDEN, "Forbidden", "Authenticated account is not authorized");
     }
 
     private ResponseEntity<Map<String, Object>> error(

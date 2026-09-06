@@ -13,6 +13,9 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import mdro.platform.service.security.principal.AccountPrincipal;
+import mdro.platform.service.entity.Account;
+import mdro.platform.service.model.account.AccountStatus;
+import mdro.platform.service.repository.AccountRepository;
 
 @Component
 @RequiredArgsConstructor
@@ -20,6 +23,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
     private final AuthenticationEntryPoint authenticationEntryPoint;
+    private final AccountRepository accountRepository;
 
     @Override
     protected void doFilterInternal(
@@ -55,7 +59,22 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
-        AccountPrincipal accountPrincipal = principal.get();
+        AccountPrincipal tokenPrincipal = principal.get();
+        Account account = accountRepository.findById(tokenPrincipal.accountId()).orElse(null);
+        if (account == null
+                || account.getAccountStatus() == AccountStatus.SUSPENDED
+                || account.getAccountStatus() == AccountStatus.DISABLED) {
+            authenticationEntryPoint.commence(request, response,
+                    new org.springframework.security.core.AuthenticationException("Invalid bearer token") {
+                    });
+            return;
+        }
+
+        AccountPrincipal accountPrincipal = new AccountPrincipal(
+                account.getId(),
+                account.getEmail(),
+                account.getAccountStatus(),
+                account.getAccountPlan());
         SecurityContextHolder.getContext().setAuthentication(
                 new UsernamePasswordAuthenticationToken(accountPrincipal, null, List.of())
         );
