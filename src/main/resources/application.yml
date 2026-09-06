@@ -80,7 +80,10 @@ ollama:
 qdrant:
   base-url: ${QDRANT_BASE_URL:http://192.168.0.107:6333}
   collection-name: ${QDRANT_COLLECTION_NAME:knowlege}
-  vector-size: ${QDRANT_VECTOR_SIZE:4096}
+  vector-dimension: ${QDRANT_VECTOR_DIMENSION:${QDRANT_VECTOR_SIZE:4096}}
+  default-limit: ${QDRANT_DEFAULT_LIMIT:3}
+  max-limit: ${QDRANT_MAX_LIMIT:10}
+  default-score-threshold: ${QDRANT_DEFAULT_SCORE_THRESHOLD:0.6}
   timeout: ${QDRANT_TIMEOUT:30s}
 
 knowledge:

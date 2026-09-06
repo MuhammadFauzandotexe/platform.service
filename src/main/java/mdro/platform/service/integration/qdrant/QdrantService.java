@@ -7,4 +7,10 @@ import java.util.UUID;
 public interface QdrantService {
 
     void upsertVector(UUID pointId, List<Float> vector, Map<String, Object> payload);
+
+    List<QdrantSearchResult> search(
+            List<Float> queryVector,
+            UUID tenantId,
+            Integer limit,
+            Double scoreThreshold);
 }
