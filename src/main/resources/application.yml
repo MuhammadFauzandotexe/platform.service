@@ -77,6 +77,12 @@ ollama:
     model: ${OLLAMA_EMBEDDING_MODEL:qwen3-embedding}
     timeout: ${OLLAMA_EMBEDDING_TIMEOUT:120s}
 
+qdrant:
+  base-url: ${QDRANT_BASE_URL:http://192.168.0.107:6333}
+  collection-name: ${QDRANT_COLLECTION_NAME:knowledge}
+  vector-size: ${QDRANT_VECTOR_SIZE:4096}
+  timeout: ${QDRANT_TIMEOUT:30s}
+
 security:
   jwt:
     secret: ${JWT_SECRET:change-this-development-secret-to-a-long-random-value}
